@@ -1,8 +1,8 @@
 import java.util.Random;
 
-public class RandomPlayer extends Player implements Playable{
+public class RandomPlayer extends Player {
     public void buyProperty(Property property){
-        float cost = property.getCost();
+        int cost = property.getCost();
         boolean buy = new Random().nextBoolean();
         
         if (this.coin >= cost && buy) {

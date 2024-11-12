@@ -1,7 +1,7 @@
-public class DemandingPlayer extends Player implements Playable{
+public class DemandingPlayer extends Player {
     public void buyProperty(Property property){
-        float cost = property.getCost();
-        float rent = property.getRent();
+        int cost = property.getCost();
+        int rent = property.getRent();
 
         if (this.coin >= cost && rent > 50) {
             this.coin -= cost;

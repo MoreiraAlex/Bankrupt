@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
-public class Player {
+public abstract class Player {
     private int position;
     private boolean isPlaying;
     
-    protected float coin;
+    protected int coin;
     protected ArrayList<Property> properties;
 
     Player(){
@@ -14,21 +14,34 @@ public class Player {
         properties = new ArrayList<Property>();
     }
 
+    public int getPosition(){
+        return this.position;
+    }
+
+    public boolean getIsPlaying(){
+        return this.isPlaying;
+    }
+
+    public int getCoins(){
+        return this.coin;
+    }
+
     public int move(int steps){
         this.position += steps;
         
         if (this.position > 20) {
             this.position -= 20;
+            this.receive(100);
         }
 
         return this.position;
     }
 
-    public void receive(float coin){
+    public void receive(int coin){
         this.coin += coin;
     }
 
-    public void payRent(float cost){
+    public void payRent(int cost){
         this.coin -= cost;
 
         if (this.coin < 0) {
@@ -44,5 +57,7 @@ public class Player {
         }
 
         properties.clear();
-    }    
+    }  
+    
+    public abstract void buyProperty(Property prop);
 }

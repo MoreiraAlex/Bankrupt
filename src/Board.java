@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Board {
 
-    public ArrayList<Property> properties;
+    private ArrayList<Property> properties;
 
     Board(){
         properties = new ArrayList<Property>();
@@ -22,5 +22,9 @@ public class Board {
         } catch (Exception e) {
             System.err.println(e);
         }
+    }
+
+    public ArrayList<Property> getProperties() {
+        return properties;
     }
 }

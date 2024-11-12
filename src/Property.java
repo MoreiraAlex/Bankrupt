@@ -1,6 +1,5 @@
 public class Property {
-    private int cost;
-    private int rent;
+    private int cost, rent;
     private Player owner;
 
     Property(int cost, int rent){

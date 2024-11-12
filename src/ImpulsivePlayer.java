@@ -1,6 +1,6 @@
-public class ImpulsivePlayer extends Player implements Playable{
+public class ImpulsivePlayer extends Player{
     public void buyProperty(Property property){
-        float cost = property.getCost();
+        int cost = property.getCost();
         
         if (this.coin >= cost) {
             this.coin -= cost;
