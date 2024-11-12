@@ -3,32 +3,32 @@ import java.util.ArrayList;
 public abstract class Player {
     private int position;
     private boolean isPlaying;
-    
+
     protected int coin;
     protected ArrayList<Property> properties;
 
-    Player(){
+    Player() {
         this.coin = 300;
         this.position = 0;
         this.isPlaying = true;
         properties = new ArrayList<Property>();
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return this.position;
     }
 
-    public boolean getIsPlaying(){
+    public boolean getIsPlaying() {
         return this.isPlaying;
     }
 
-    public int getCoins(){
+    public int getCoins() {
         return this.coin;
     }
 
-    public int move(int steps){
+    public int move(int steps) {
         this.position += steps;
-        
+
         if (this.position > 20) {
             this.position -= 20;
             this.receive(100);
@@ -37,11 +37,11 @@ public abstract class Player {
         return this.position;
     }
 
-    public void receive(int coin){
+    public void receive(int coin) {
         this.coin += coin;
     }
 
-    public void payRent(int cost){
+    public void payRent(int cost) {
         this.coin -= cost;
 
         if (this.coin < 0) {
@@ -49,15 +49,15 @@ public abstract class Player {
         }
     }
 
-    public void lose(){
+    private void lose() {
         this.isPlaying = false;
-            
+
         for (Property property : properties) {
             property.setOwner(null);
         }
 
         properties.clear();
-    }  
-    
-    public abstract void buyProperty(Property prop);
+    }
+
+    public abstract void buyProperty(Property property);
 }
