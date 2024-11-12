@@ -3,8 +3,9 @@ public class DemandingPlayer extends Player implements Playable{
         float cost = property.getCost();
         float rent = property.getRent();
 
-        if (coin >= cost && rent > 50) {
-            coin -= cost;
+        if (this.coin >= cost && rent > 50) {
+            this.coin -= cost;
+            this.properties.add(property);
             property.setOwner(this);
         }
     }

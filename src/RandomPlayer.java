@@ -5,8 +5,9 @@ public class RandomPlayer extends Player implements Playable{
         float cost = property.getCost();
         boolean buy = new Random().nextBoolean();
         
-        if (coin >= cost && buy) {
-            coin -= cost;
+        if (this.coin >= cost && buy) {
+            this.coin -= cost;
+            this.properties.add(property);
             property.setOwner(this);
         }
     }
