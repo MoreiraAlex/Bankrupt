@@ -6,12 +6,9 @@ public class Board {
 
     private ArrayList<Property> properties;
 
-    Board(){
-        properties = new ArrayList<Property>();
-    }
-
-    public void buildBoard(String settings){
+    Board(String settings){
         try{
+            properties = new ArrayList<Property>();
             Scanner scanner = new Scanner(new FileReader(settings));
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();

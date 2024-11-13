@@ -12,8 +12,7 @@ public class GameController {
     private Report report;
 
     GameController(ArrayList<Player> players, String settings) {
-        board = new Board();
-        board.buildBoard(settings);
+        board = new Board(settings);
         properties = board.getProperties();
 
         this.players = players;
@@ -27,8 +26,8 @@ public class GameController {
         return this.report;
     }
 
-    public void Play() {
-        int round = 1, rounds = 1000;
+    public void Play(int rounds) {
+        int round = 1;
         Collections.shuffle(players);
 
         List<Player> winners = players;
@@ -53,9 +52,7 @@ public class GameController {
                     continue;
                 }
 
-                int rent = property.getRent();
-                player.payRent(rent);
-                property.getOwner().receive(rent);
+                player.payRent(property);
             }
 
             winners = players.stream().filter(player -> player.getIsPlaying()).collect(Collectors.toList());

@@ -26,7 +26,7 @@ public class App {
             GameController game = new GameController(players,
                     "resources/GameConfig.txt");
 
-            game.Play();
+            game.Play(1000);
             Report report = game.generateReport();
             System.out.println(report.toString());
 

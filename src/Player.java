@@ -41,10 +41,19 @@ public abstract class Player {
         this.coin += coin;
     }
 
-    public void payRent(int cost) {
-        this.coin -= cost;
+    public void payRent(Property property) {
+        Player owner = property.getOwner();
+        int rent = property.getRent();
 
-        if (this.coin < 0) {
+        if(this.coin >= rent){
+            owner.receive(rent);
+        } else {
+            owner.receive(this.coin);
+        }
+        
+        this.coin -= rent;
+
+        if (this.coin <= 0) {
             this.lose();
         }
     }
